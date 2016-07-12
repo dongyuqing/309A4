@@ -9,14 +9,31 @@
         <link href="../styles/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="../styles/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../styles/style.css" rel="stylesheet" type="text/css"/>
-        <title>Your Title Here</title>
+        <title>Login</title>
     </head>
     <body>
         <nav></nav>
 
-        <div class="wrapper">
-            
-            <!-- Your code goes here -->
+        <div id="wrapper-login">
+			<ul class="signin-register-tabs">
+				<li><a href="#login">Log In</a></li>
+				<li><a href="#signup">Sign Up</a></li>
+			</ul>
+			
+			<body>
+				<section id="login">
+					<h1>Welcome Back!</h1>
+					
+					<form action="/" method="post">
+						<input type="text" placeholder="Username"/>
+						<input type="text" placeholder="Password"/>
+						
+						<p id="forget-password">Forgot Password?</p>
+						
+						<button id="button-login">Log In</button>
+					</form>
+				</section>
+			</body>
 
         </div> <!-- close wrapper -->
 
