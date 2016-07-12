@@ -1,0 +1,350 @@
+/* Resets 
+========================*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,h7,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,nav,section {
+    margin:0;
+    padding:0;
+    border:0;
+    font: 100%;
+    vertical-align:baseline;   
+}
+/* apply a natural box layout model to all elements, in the oldschool way */
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*Define standard behaviors*/
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+/*Semantic block elements*/
+article, aside, figure, footer, header, nav, section, details, summary {
+    display: flex;
+}
+/*Standard size and position*/
+sup, sub {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/*Make certain objects responsive*/
+img, object, embed {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ===================
+    MOBILE FIRST 
+    MAIN GENERAL GLOBAL
+    Screen-size-dependent styles...
+==================== */
+html {
+    /*Define the min width of the page, because smaller is untested and undefined.*/
+    min-width: 300px;
+
+    /*Page font*/
+    font-family: Georgia, "Times New Roman", Times, serif;
+    /*consistent on safari:*/
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+body {
+
+}
+
+/*My link style:*/
+a {
+    /*muted grey*/
+    color: #666666;
+
+    /*fun, green*/
+    /*color: #5bff62;*/
+}
+a:hover {
+    /*black*/
+    color: #323232;
+    /*color: #fff;*/
+
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.65);
+    transition: all 0.2s ease-in-out;
+}
+a:active {
+    text-shadow: 0 2px 5px white;
+    transition: none;  /*tap to click needs immediate response*/
+}
+
+
+
+/*This is smallest, applies to all, mobile first*/
+.wrapper {
+    padding-top: 40px;
+}
+
+
+
+
+
+
+
+/* ===================
+    Navigation
+==================== */
+
+/*consistent sizing of nav bar:*/
+nav#mainNav, nav#mainNav li {
+    height: 40px;
+}
+nav#mainNav * {
+    line-height: 40px;
+}
+
+
+nav#mainNav {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    opacity: 0.97;
+    z-index: 1000;
+    background-color: #F3F3F3;
+    
+    /*boxy, more defined*/
+    box-shadow: inset 0 1px #FCFCFC,inset 0 -1px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.3);
+
+    /*Font... */
+    font-family: 'Helvetica Neue', 'helvetica neue', Helvetica, Geneva, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+nav#mainNav ul {
+    display: flex;
+    width: 100%;
+}
+nav#mainNav li {
+    width: 25%;  /*4 things*/
+    float: left;
+    letter-spacing: 2px;
+    /*cursor: pointer;*/
+    text-align: center;
+    padding: 0 0.4em 0 0.4em;  /*top right bottom left*/
+    overflow: hidden;  /*hide if overflows accidentally*/
+}
+
+/*override my link styles*/
+nav#mainNav a {
+    float: left;
+    width: 100%;  /*centered on parent:*/
+}
+
+/*for indicating interaction when only icons show
+*/
+nav#mainNav a:hover i {
+    color: #E75353;
+    transition: all .1s ease-in-out;
+}
+nav#mainNav a:active i {
+    color: white;
+}
+
+/*style the icon fonts in nav*/
+nav#mainNav i {
+    color: #FFFFFF;
+    text-shadow: 0 1px 1px #A8A8A8,0 2px 1px #c7c7c7,0 0 5px rgba(0,0,0,.11),0 1px 3px rgba(0,0,0,.13),0 3px 5px rgba(0,0,0,.13);
+    /*centered better*/
+    position: relative;
+    top: -1px;
+}
+
+
+/*hide text first*/
+nav#mainNav ul span {
+    display: none;
+}
+
+/*icon font*/
+nav#mainNav ul i {
+    font-size: 200%;
+}
+
+
+
+/* ===================
+    Footer
+==================== */
+
+footer {
+    /*parent of an absolute must be relative, to position the absolute*/
+    position: relative;
+    z-index: 1;
+    padding: 140px 0 80px 0;  /*top right bottom left*/
+    display: block;
+    text-align: center;
+
+    /*font: font-style font-variant font-weight font-size/line-height font-family;*/
+    font: italic normal 12px Georgia;
+    color: rgb(50, 195, 255);
+
+    /*Pulse ball*/
+    border-radius: 100%;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+footer a {
+    color: rgb(50, 195, 255);
+}
+footer a:hover {
+    color: rgb(175, 232, 255);
+}
+
+
+
+/* ===================
+    Login
+==================== */
+
+
+
+
+
+
+
+/* ===================
+    Profile
+==================== */
+
+
+
+
+
+
+
+
+
+/* ===================
+    Admin
+==================== */
+
+
+
+
+
+
+
+
+/* ===================
+    Transfer
+==================== */
+
+
+
+
+
+
+
+
+/* ===================
+    Place
+==================== */
+
+
+
+
+
+
+
+
+
+
+/* ===================
+    Messages
+==================== */
+
+
+
+
+
+
+
+
+
+/* ===================
+    Utilities
+==================== */
+
+
+
+
+
+
+
+/*---------------------------------------------------------------------*/
+/*Smartphone: 320x480 and 480x320*/
+/*Screen sizes above 320 px*/
+@media (min-width: 320px) {
+    .wrapper {
+
+    }
+
+}
+
+/*---------------------------------------------------------------------*/
+/*Screen sizes above 480 px*/
+@media (min-width: 480px) {
+    .wrapper {
+
+    }
+
+}
+
+/*---------------------------------------------------------------------*/
+/*Tablet: 768x1024 and 1024x768*/
+/*Screen sizes above 768 px*/
+@media (min-width: 768px) {
+
+    /*as width increases, wont wrap edge anymore*/
+    .wrapper {
+        
+    }
+
+}
+
+/*---------------------------------------------------------------------*/
+/*Screen sizes above 1024 px*/
+@media (min-width: 1024px) {
+
+    /*as width increases, add more spacing around the section cards*/
+    .wrapper {
+        margin: 0 70px; /*top/bottom right/left*/
+    }
+
+}
+
+/*---------------------------------------------------------------------*/
+/*Desktop: 1280x980*/
+/*Screen sizes above 1280 px*/
+@media (min-width: 1280px) {
+
+    /*as width increases, add more spacing around the section cards*/
+    .wrapper{
+        /*note: No limit to max size...*/
+        margin: 0 4em; /*top/bottom right/left*/
+    }
+
+}
+
+
