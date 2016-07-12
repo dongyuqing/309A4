@@ -217,11 +217,97 @@ footer a:hover {
     Login
 ==================== */
 
+div#wrapper-login {
+	position: absolute;
+	width: 20%;
+	top: 20%;
+	left: 40%;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 4px;
+	display: block;
+}
 
+ul#signin-register-tabs {
+	display: flex;
+	text-align: center;
+	position: relative;
+	border-bottom: 2px solid black;
+}
 
+li.li-login-signup {
+	padding: 10px;
+	width: 80%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
 
+section.class-login-page {
+	display: block;
+}
 
+section#section-login h1 {
+	display: block;
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 10px;
+	padding: 5px;
+	text-align: center;
+}
 
+form#form-login {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+form#form-login input {
+	display: block;
+	padding: 10px;
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 10px;
+}
+
+button#button-login {
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+section#section-signup {
+	display: none;
+}
+section#section-signup h1 {
+	display: block;
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 10px;
+	padding: 5px;
+	text-align: center;
+}
+
+form#form-signup {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+form#form-signup input {
+	display: block;
+	padding: 10px;
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 10px;
+}
+
+button#button-signup {
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
 
 /* ===================
     Profile

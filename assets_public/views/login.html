@@ -9,21 +9,48 @@
         <link href="../styles/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="../styles/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../styles/style.css" rel="stylesheet" type="text/css"/>
-        <title>Your Title Here</title>
+		<script src="../scripts/script-login.js" type="text/javascript" async></script>
+		<script src="../libs/jquery-3.0.0.min.js"></script>
+        <script src="../libs/bootstrap.min.js"></script>
+        <script src="../scripts/script.js"></script>
+        <title>Login</title>
     </head>
     <body>
         <nav></nav>
 
-        <div class="wrapper">
-            
-            <!-- Your code goes here -->
+        <div id="wrapper-login">
+			<ul id="signin-register-tabs">
+				<li class="li-login-signup active"><a href="#section-login">Log In</a></li>
+				<li class="li-login-signup"><a href="#section-signup">Sign Up</a></li>
+			</ul>
+			<section class="class-login-page" id="section-login">
+				<h1>Welcome Back!</h1>
+
+				<form id="form-login" action="/" method="post">
+					<input type="text" placeholder="Username"/>
+					<input type="text" placeholder="Password"/>
+
+
+				</form>
+
+				<button id="button-login">Log In</button>
+			</section>
+			
+			<section class="class-login-page" id="section-signup">
+				<h1>Hello new user!</h1>
+
+				<form id="form-signup" action="/" method="post">
+					<input type="text" placeholder="Username"/>
+					<input type="text" placeholder="Password"/>
+					<input type="email" placeholder="Email"/>
+					<input type="text" placeholder="Day"/>
+					<input type="text" placeholder="Month"/>
+					<input type="text" placeholder="Year"/>
+				</form>
+
+				<button id="button-signup">Sign Up</button>
+			</section>
 
         </div> <!-- close wrapper -->
-
-        <footer></footer>
-
-        <script src="../libs/jquery-3.0.0.min.js"></script>
-        <script src="../libs/bootstrap.min.js"></script>
-        <script src="../scripts/script.js"></script>
     </body>
 </html>
