@@ -54,9 +54,13 @@ html {
     min-width: 300px;
 
     /*Page font*/
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: 'Helvetica Neue', 'helvetica neue', Helvetica, Geneva, sans-serif;
     /*consistent on safari:*/
     -webkit-font-smoothing: subpixel-antialiased;
+
+    height: 100%;
+    /*viewport taller than content non-white at bottom*/
+    background-image: linear-gradient(180deg, #16BFFD 93%, #0084ff 100%);
 }
 
 body {
@@ -71,7 +75,7 @@ a {
     /*fun, green*/
     /*color: #5bff62;*/
 }
-a:hover {
+a:hover, a:hover i {
     /*black*/
     color: #323232;
     /*color: #fff;*/
@@ -88,7 +92,9 @@ a:active {
 
 /*This is smallest, applies to all, mobile first*/
 .wrapper {
+    background: white;
     padding-top: 40px;
+    display: flex; /*messages page needs this*/
 }
 
 
@@ -112,7 +118,6 @@ nav#mainNav * {
 
 nav#mainNav {
     position: fixed;
-    overflow: hidden;
     width: 100%;
     opacity: 0.97;
     z-index: 1000;
@@ -122,9 +127,9 @@ nav#mainNav {
     box-shadow: inset 0 1px #FCFCFC,inset 0 -1px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.3);
 
     /*Font... */
-    font-family: 'Helvetica Neue', 'helvetica neue', Helvetica, Geneva, sans-serif;
+    /*font-family: 'Helvetica Neue', 'helvetica neue', Helvetica, Geneva, sans-serif;*/
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
 }
 
@@ -133,51 +138,200 @@ nav#mainNav ul {
     width: 100%;
 }
 nav#mainNav li {
-    width: 25%;  /*4 things*/
     float: left;
-    letter-spacing: 2px;
-    /*cursor: pointer;*/
+    width: inherit;
+    /*letter-spacing: 2px;*/
     text-align: center;
-    padding: 0 0.4em 0 0.4em;  /*top right bottom left*/
+    /*top right bottom left*/
+    /*padding: 0 0.4em 0 0.4em;*/
     overflow: hidden;  /*hide if overflows accidentally*/
+}
+
+/*Add to 100%*/
+nav#mainNav li.element-search {
+    width: 55%;
+}
+nav#mainNav li.element-shift {
+    width: 15%;
+}
+nav#mainNav li.element-user {
+    width: 10%;
+}
+nav#mainNav li.element-messages {
+    width: 10%;
+}
+nav#mainNav li.element-notifications {
+    width: 10%;
+}
+
+
+/*style the icon fonts in nav*/
+nav#mainNav i {
+    color: #FFFFFF;
+    text-shadow: 0 1px 1px #A8A8A8,0 2px 1px #c7c7c7,0 0 5px rgba(0,0,0,.11),0 1px 3px rgba(0,0,0,.13),0 3px 5px rgba(0,0,0,.13);
+    position: relative;
 }
 
 /*override my link styles*/
 nav#mainNav a {
     float: left;
     width: 100%;  /*centered on parent:*/
+    text-decoration: none;
+}
+
+nav#mainNav a#shifter * {
+    color: #16BFFD;
+}
+nav#mainNav a#shifter {
+    font-size: 190%;
+    
+}
+nav#mainNav a#shifter i {
+    font-size: 100%;
 }
 
 /*for indicating interaction when only icons show
 */
 nav#mainNav a:hover i {
-    color: #E75353;
-    transition: all .1s ease-in-out;
+    color: #323232;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.65); 
 }
 nav#mainNav a:active i {
     color: white;
 }
 
-/*style the icon fonts in nav*/
-nav#mainNav i {
-    color: #FFFFFF;
-    text-shadow: 0 1px 1px #A8A8A8,0 2px 1px #c7c7c7,0 0 5px rgba(0,0,0,.11),0 1px 3px rgba(0,0,0,.13),0 3px 5px rgba(0,0,0,.13);
-    /*centered better*/
-    position: relative;
-    top: -1px;
-}
+
 
 
 /*hide text first*/
 nav#mainNav ul span {
-    display: none;
+    /*display: none;*/
+    display: inline-block;
+    position: relative;
 }
 
 /*icon font*/
 nav#mainNav ul i {
-    font-size: 200%;
+    font-size: 16px;
 }
 
+/*notification symbol*/
+nav#mainNav a.attention span:before {
+    content: "\25CF";
+    font-size: 24px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.44);
+    color: #fa3c45;
+    position: absolute;
+    left: -12px;
+    top: -6px;
+}
+
+
+/*Search*/
+form#navSearch {
+    display: flex;
+    width: 100%;
+}
+
+#navSearch input {
+    border: none;
+    margin-top: -1px;
+    padding-left: 12px;
+    width: inherit;
+}
+
+#navSearch button {
+    border: none;
+    line-height: initial;
+}
+
+#navSearch button i {
+    line-height: initial;
+}
+
+#navSearch button:hover i {
+    color: #323232;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.65);
+}
+
+#userNavPhoto {
+    display: inline;
+}
+#userNavPhoto img {
+    width: 34px;
+    height: 34px;
+    margin-top: 3px;
+}
+
+
+/*DROPDOWN*/
+.userMenu {
+    display: none;
+    box-shadow: 0 0px 0px 1px rgba(0, 0, 0, 0.1);
+    position: absolute; /*allows userItem to set width*/
+    z-index: 5;
+    background: #F8F8F8;
+    margin-top: -12px;
+    margin-left: -282px;
+    border-radius: 3px;
+    min-width: 300px;  /*narrowest screen width*/
+}
+/*.userMenu:before {
+    z-index: -1;
+    top: -3px;
+    left: 295px;
+    margin: 0;
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    content: " ";
+    visibility: visible;
+    width: 8px;
+    height: 8px;
+    box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1);
+    background-color: #F8F8F8;
+    transform: rotate(45deg);
+}*/
+.dropStyle {
+    /*font-family: "Helvetica Neue", Helvetica, Geneva, sans-serif;*/
+    cursor: pointer;
+}
+
+.dropStyle:hover > .userMenu {
+    display: block;
+}
+.userMenu .userItem:first-child {
+    border-top: none;
+}
+.userItem {
+    text-align: left;
+    font-size: 14px;
+    line-height: 19px;
+    text-shadow: none;
+    letter-spacing: 2px;
+    color: #363636;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0px 12px;
+    transition:all .2s ease-in-out; 
+    cursor: pointer;
+}
+    .userItem:hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+    .userItem:active {
+        background: rgba(0, 0, 0, 0);
+    }
+    .userItem[data-link="void"]:hover {
+        color: red;
+        cursor: default;
+        background: rgba(0, 0, 0, 0);
+    }
+
+.userItem a {
+    float: none !important;
+    display: block;
+}
 
 
 /* ===================
@@ -194,15 +348,16 @@ footer {
 
     /*font: font-style font-variant font-weight font-size/line-height font-family;*/
     font: italic normal 12px Georgia;
-    color: rgb(50, 195, 255);
+    color: white;
+    background: #16BFFD;
 
     /*Pulse ball*/
-    border-radius: 100%;
-    width: 400px;
-    height: 400px;
+    /*border-radius: 100%;*/
+    /*width: 400px;*/
+    /*height: 400px;*/
     margin: 0 auto;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    /*margin-top: 80px;*/
+    /*margin-bottom: 80px;*/
 }
 footer a {
     color: rgb(50, 195, 255);
@@ -217,97 +372,114 @@ footer a:hover {
     Login
 ==================== */
 
-div#wrapper-login {
-	position: absolute;
-	width: 20%;
-	top: 20%;
-	left: 40%;
+#body-login #mainNav {
+    display: none;
+}
+
+#body-login {
+    
+}
+
+#body-login .wrapper {
+    margin: 0 !important;
+
+    background: #16BFFD; /* fallback for old browsers */
+    background: linear-gradient(to top, #16BFFD , #CB3066); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#main-login {
+	/*position: absolute;*/
+    margin: 0 auto;
+	/*width: 20%;*/
+	/*top: 20%;*/
+	/*left: 40%;*/
 	background-color: white;
 	border: 2px solid black;
 	border-radius: 4px;
 	display: block;
 }
 
+#main-login ul {
+    display: flex;
+    text-align: center;
+    position: relative;
+}
+
 ul#signin-register-tabs {
-	display: flex;
-	text-align: center;
-	position: relative;
 	border-bottom: 2px solid black;
 }
 
+#main-login ul li {
+    padding: 10px;
+}
+
 li.li-login-signup {
-	padding: 10px;
-	width: 80%;
-	margin-left: 5%;
-	margin-right: 5%;
+	width: 50%;
+}
+
+.li-login-signup.active {
+    text-decoration: underline;
 }
 
 section.class-login-page {
 	display: block;
+    padding: 22px;
 }
 
-section#section-login h1 {
+#main-login h2 {
 	display: block;
-	width: 80%;
-	margin-left: 10%;
-	margin-top: 10px;
 	padding: 5px;
-	text-align: center;
 }
 
-form#form-login {
+ul#third-party-login {
+    display: block;
+}
+
+#third-party-login li {
+
+}
+
+#third-party-login a {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+}
+
+a#facebook-login {
+    background: #3b5998;
+}
+
+a#google-login {
+    background: #dd4b39;
+}
+
+#main-login form {
 	display: block;
 	position: relative;
 	width: 100%;
 }
 
-form#form-login input {
+#main-login form input {
 	display: block;
-	padding: 10px;
-	width: 80%;
-	margin-left: 10%;
+	/*padding: 10px;*/
+	width: 100%;
+	/*margin-left: 10%;*/
 	margin-top: 10px;
 }
 
-button#button-login {
-	width: 80%;
-	margin-left: 10%;
+#main-login button {
+	width: 100%;
+	/*margin-left: 10%;*/
 	margin-top: 10px;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
 }
 
 section#section-signup {
 	display: none;
 }
-section#section-signup h1 {
-	display: block;
-	width: 80%;
-	margin-left: 10%;
-	margin-top: 10px;
-	padding: 5px;
-	text-align: center;
-}
 
-form#form-signup {
-	display: block;
-	position: relative;
-	width: 100%;
-}
-
-form#form-signup input {
-	display: block;
-	padding: 10px;
-	width: 80%;
-	margin-left: 10%;
-	margin-top: 10px;
-}
-
-button#button-signup {
-	width: 80%;
-	margin-left: 10%;
-	margin-top: 10px;
-	margin-bottom: 20px;
-}
 
 /* ===================
     Profile
@@ -337,7 +509,80 @@ button#button-signup {
 ==================== */
 
 
+/* header styles*/
+h1.forum {
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: #BAD1E4;
+    border-radius: 20px;
+    margin: 0.5%;
+}
 
+
+ul.forum {
+    margin: 15 15 15 15px;
+    padding: 15 15 15 15px;
+
+
+}
+
+#preview li {
+    padding: 10px;
+}
+
+#details li {
+    list-style: none;
+}
+
+li.watch {
+    border-width: 2px;
+    border-style: solid;
+    background-color: #BAD1E4; 
+
+}
+
+section.forum  {
+    background: #EBEBEB;
+    display: inline;
+    text-align: left;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+}
+/* section styles*/
+#preview{
+    padding: 2%;
+    width: 20%;
+    float: left;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#details, #comments {
+    padding: 1.5%;
+    width: 70%;
+    float: left;
+    border-radius: 15px;
+}
+/* paragraph styles*/
+p.forum {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#ops button {
+    font-size: 28px;
+    margin: 2% 2% 2% 2%;
+}
+
+#new button{
+    font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+    #preview {
+        width: 90%;
+    }
+}
 
 
 
@@ -346,8 +591,37 @@ button#button-signup {
 /* ===================
     Place
 ==================== */
+section.placeSection{
+    margin: 10px;
+    border-style: solid;
+    border-width: 5px;
+}
 
+section.placeSection li{
+    margin: 10px;
+    border-style: dashed;
+    border-width: 1px;
+}
 
+section#topEmployee{
+    height: 750px;
+}
+
+section#placeCover{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+img#placeCoverPic{
+    width: 100%;
+    height: initial;
+    overflow: hidden;
+}
+
+section#topEmployee {
+    float: right;
+}
 
 
 
@@ -360,8 +634,127 @@ button#button-signup {
     Messages
 ==================== */
 
+#mainMessage {
+    width: 100%;
+}
 
+.messageBlock {
+    display: inline-block;
+    padding: 10px;
+    padding-bottom: 30px;
+    height: 100%;
+}
 
+#messageRecipients {
+    width: 30%;
+    border-right: 1px solid darkgrey;
+}
+
+.ithMessageRecipient {
+    margin-bottom: 8px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.ithMessageRecipient a {
+    width: 100%;
+    display: block;
+}
+
+.ithMessageRecipient figure {
+    display: inline-block;
+    float: left;
+    clear: right;
+    margin-right: 8px;
+}
+
+.ithMessageRecipient img {
+    
+}
+
+.ithMessageRecipient aside {
+    clear: right;
+    display: block;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ithMessageRecipient aside h5 {
+    color: black;
+    margin-bottom: 3px;
+}
+
+.ithMessageRecipient aside span {
+    display: none;
+}
+
+.ithMessageRecipient aside span:first-of-type {
+    margin-right: 4px;
+}
+
+#messageArea {
+    width: 70%;
+    top: 0;
+    float: right;
+}
+
+.messageTimestamp {
+    float: left;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+article.msg {
+    display: block;
+    width: 100%;
+}
+
+.youMessage {
+    float: right;
+    text-align: right;
+}
+
+.youMessage span {
+    float: right;
+    border-radius: 10px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: #0084ff;
+    color: white;
+}
+
+.otherMessage {
+    float: left;
+    text-align: left;
+}
+
+.otherMessage span {
+    float: left;
+    border-radius: 10px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background: #f1f0f0;
+}
+
+article.msg span {
+    padding: 7px;
+}
+
+.otherMessage img {
+    float: left;
+    width: 30px;
+}
+
+.messageTimestamp {
+    display: block;
+    font-weight: 500;
+    margin: 12px 0 12px 20px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, .40);
+    text-align: center;
+}
 
 
 
@@ -386,6 +779,9 @@ button#button-signup {
 
     }
 
+
+
+
 }
 
 /*---------------------------------------------------------------------*/
@@ -394,6 +790,8 @@ button#button-signup {
     .wrapper {
 
     }
+
+    
 
 }
 
@@ -405,6 +803,29 @@ button#button-signup {
     /*as width increases, wont wrap edge anymore*/
     .wrapper {
         
+    }
+
+    /*Navigation*/
+    nav#mainNav li.element-search {
+        width: 40%;
+    }
+    nav#mainNav li.element-shift {
+        width: 20%;
+    }
+    nav#mainNav li.element-user {
+        width: 10%;
+    }
+    nav#mainNav li.element-messages {
+        width: 15%;
+    }
+    nav#mainNav li.element-notifications {
+        width: 15%;
+    }
+
+
+    /*Messages*/
+    .ithMessageRecipient aside span {
+        display: inline;
     }
 
 }

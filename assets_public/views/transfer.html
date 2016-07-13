@@ -12,18 +12,87 @@
         <title>Your Title Here</title>
     </head>
     <body>
-        <nav></nav>
+        <nav id="mainNav">
+            <ul>
+                <li class="element-search">
+                    <form action="/search" id="navSearch">
+                        <input class="searchInput" type="text" id="searchQuery" placeholder="Search Shifter" name="q" autocomplete="off" spellcheck="false">
+                        <button type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </li>
+                <li class="element-shift"><a href="#" id="shifter" title="Shift your shift, shifter"><i class="fa fa-plus-square"></i> <span>Shifter</span></a></li>
+                <li class="element-user dropControl dropStyle">
+                    <figure id="userNavPhoto">
+                        <img src="../images/default_user.svg" alt="User profile photo">
+                    </figure>
+                    <div class="userMenu">
+                        <div class="userItem">
+                            <a href="./profile.html" title="Profile"><i class="fa fa-user"></i> <span>Lalla Middlesborough | View Profile</span></a>
+                        </div>
+                        <div class="userItem"><a href="#" title="Edit Profile"><i class="fa fa-paint-brush"></i> <span>Edit Profile</span></a></div>
+                        <div class="userItem"><a href="#" title="Log out"><i class="fa fa-times"></i> <span>Log out</span></a></div>
+                    </div>
+                </li>
+                <li class="element-messages"><a href="./messages.html" id="message" class="attention" title="Messages"><i class="fa fa-comments"></i> <span>Messages</span></a></li>
+                <li class="element-notifications"><a href="#" id="notification" title="Notifications"><i class="fa fa-bell"></i> <span>Notifications</span></a></li>
+            </ul>
+        </nav>
 
         <div class="wrapper">
             
             <!-- Your code goes here -->
+            <h1 class="forum">Shift Transfer Info Forum at [company name]</h1>
+            <section id="preview" class="forum">
+                <ul class="forum">
+                <li>Jul 12th (Tue): evening shift (6pm~11pm) at Queen St branch</li>
+                <li>Jul 10th (Sun): day shift (12pm~5pm) at Bloor St branch</li>
+                <li class="watch">Jul 8th (Fri): evening shift (6pm~11pm) at Midtown branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                <li>Jul 8th (Fri): morning shift (9am~12pm) at Mississauga branch</li>
+                </ul class="forum">
+            </section>
+            <section id="details" class="forum">
+                <article class="forum">
+                    <h3 class="forum">Post: Jul 8th (Fri): evening shift (6pm~11pm) at Midtown branch</h3>
+                    <p class="forum">Posted by Jack Chang on Jul 5th, 2016</p>
+                    <ul class="forum">
+                        <li>Position: Cashier</li>
+                        <li>Date: July 8th, 2016</li>
+                        <li>Time: 6pm-11pm</li>
+                        <li>Duration: 5 hours</li>
+                        <li>Location: 236 Queen St W, Toronto</li>
+                        <li>Bonus: $15</li>
+                        <li>Status: Active Listing</li>
+                    </ul>
+                    <button id="ops">TAKE THIS</button>
+                    <button id="ops">Message Author</button>
+                </article class="forum" >
+            </section>
+            <section id="comments" class="forum">
+                <h3>Comments:</h3>
+                <p class="forum">Posted by Ray Smith on Jul 7th, 2016</p>
+                <p class="forum">Hi Jack:</p>
+                <p class="forum">Is it possible to only take the first three hours?</p>
+                <button id="new">Add New Comment</button>
+            </section>
 
         </div> <!-- close wrapper -->
 
-        <footer></footer>
+        <footer>
+            Shifter | Created by Fong-Dong-Ju-Tam
+        </footer>
 
         <script src="../libs/jquery-3.0.0.min.js"></script>
-        <script src="../libs/bootstrap.min.js"></script>
         <script src="../scripts/script.js"></script>
     </body>
 </html>
